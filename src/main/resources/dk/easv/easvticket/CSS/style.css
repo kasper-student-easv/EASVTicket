@@ -1,0 +1,120 @@
+VBox, HBox, BorderPane, ScrollPane,ScrollPane .viewport, TilePane {
+    -fx-background-color: #000080;
+}
+
+.loginFiled {
+
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-insets: 3;
+    -fx-padding: 8 12;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.loginBtn {
+    -fx-background-color: #00FFFF;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-insets: 3;
+    -fx-padding: 10 20;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.menuBtn {
+    -fx-pref-width: Infinity;
+    -fx-background-insets: 3;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.topMenuBtn {
+    -fx-background-insets: 3;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.contentMenuHBox {
+    -fx-background-color: #000066;
+}
+
+.contentMenuBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #00CC66;
+    -fx-background-insets: 1;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 3;
+}
+
+.contentCart {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-background-insets: 3;
+    -fx-padding: 8 12;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.contentBackground {
+    -fx-background-color: #FFFFFF;
+}
+
+.contentDeleteBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #CC0000;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3;
+    -fx-background-insets: 1;
+}
+
+.whiteText {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24;
+}
+
+.detailsDelete {
+    -fx-background-color: #CC0000;
+    -fx-text-fill: #ffffff;
+}
+
+.detailsEdit {
+    -fx-background-color: #00CC66;
+    -fx-text-fill: #ffffff;
+}
+
+.formInput {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-insets: 3;
+    -fx-padding: 8 12;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+
+.formCancel {
+    -fx-background-color: #CC0000;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-insets: 3;
+    -fx-padding: 8 12;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
+.formSave {
+    -fx-background-color: #00CC66;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-insets: 3;
+    -fx-padding: 8 12;
+    -fx-border-color: #000000;
+    -fx-border-width: 5;
+}
