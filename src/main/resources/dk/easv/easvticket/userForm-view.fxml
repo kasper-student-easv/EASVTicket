@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -28,11 +29,10 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
       </TextField>
-      <TextField fx:id="txtType" alignment="CENTER" maxWidth="300.0" promptText="Type" styleClass="formInput">
+      <ComboBox fx:id="cmbType" prefHeight="30.0" prefWidth="300.0" promptText="Type" styleClass="formInput">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </VBox.margin>
-      </TextField>
+         </VBox.margin></ComboBox>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" styleClass="formCancel" text="cancel">

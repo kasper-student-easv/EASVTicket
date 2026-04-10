@@ -44,7 +44,7 @@ public class UserDAO implements IUser {
             ps.setString(4,user.getEmail());
             ps.setInt(5,user.getType());
             ps.executeUpdate();
-            ResultSet rs = ps.getResultSet();
+            ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()) {
                 int newId = rs.getInt(1);
                 return new User(newId, user.getName(), user.getUserName(), user.getEmail(), user.getType());

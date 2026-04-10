@@ -21,10 +21,27 @@ public class User {
         this.type = type;
         this.events = new ArrayList<>();
     }
+    public User(String name, String userName,String password, String email, int type) {
+        this.name = name;
+        this.userName = userName;
+        this.password  = password;
+        this.email = email;
+        this.type = type;
+        this.events = new ArrayList<>();
+    }
     public User(int id, String name, String userName, String email, int type) {
         this.id = id;
         this.name = name;
         this.userName = userName;
+        this.email = email;
+        this.type = type;
+        this.events = new ArrayList<>();
+    }
+    public User(int id, String name, String userName,String password, String email, int type) {
+        this.id = id;
+        this.name = name;
+        this.userName = userName;
+        this.password  = password;
         this.email = email;
         this.type = type;
         this.events = new ArrayList<>();
