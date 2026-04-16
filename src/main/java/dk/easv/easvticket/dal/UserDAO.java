@@ -35,6 +35,27 @@ public class UserDAO implements IUser {
     }
 
     @Override
+    public List<User> getCoordinator() throws Exception {
+        List<User> users = new ArrayList<>();
+        try (Connection conn = DBConnector.getStaticConnection();
+             Statement stmt = conn.createStatement()) {
+            String sql = "SELECT * FROM EventUser where Type = 2";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("Id");
+                String name = rs.getString("Name");
+                String userName = rs.getString("UserName");
+                String email = rs.getString("email");
+                int type = rs.getInt("Type");
+                users.add(new User(id, name, userName, email, type));
+            }
+        } catch (Exception e) {
+            throw new Exception("something has gone wrong in getting User", e);
+        }
+        return users;
+    }
+
+    @Override
     public User createUser(User user) throws Exception {
         try(Connection conn = DBConnector.getStaticConnection();
             PreparedStatement ps = conn.prepareStatement("INSERT INTO EventUser (Name,UserName,Password,EMail,Type) VALUES (?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)) {

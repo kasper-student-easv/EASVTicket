@@ -8,6 +8,8 @@ public interface IUser {
 
     List<User> getAllUser() throws Exception;
 
+    List<User> getCoordinator() throws Exception;
+
     User createUser(User user) throws Exception;
 
     void updateUser(User user) throws Exception;

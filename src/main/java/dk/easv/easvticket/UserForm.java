@@ -27,6 +27,8 @@ public class UserForm implements Initializable {
     @FXML
     private ComboBox<String> cmbType;
     private UserManager userManager = new UserManager();
+    private User createUser = null;
+    private User editingUser = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,31 +37,64 @@ public class UserForm implements Initializable {
 
     @FXML
     private void onSave(ActionEvent actionEvent) {
-        if(txtName.getText() != null && txtUserName.getText() != null && txtPassword.getText() != null && txtEmail.getText() != null && cmbType.getValue() != null) {
-            String hashedPassword = Encrypter.hashPassword(txtPassword.getText());
-            int type = cmbType.getValue().equals("Admin") ? 1 : 2;
-            User user = new User(
-                    txtName.getText(),
-                    txtUserName.getText(),
-                    hashedPassword,
-                    txtEmail.getText(),
-                    type
-            );
-            User newUser = null;
-            try {
-                newUser = userManager.createUser(user);
-            } catch (Exception e) {
-                DisplayError.showError(e);
+        if(editingUser == null) {
+            if(txtName.getText() != null && txtUserName.getText() != null && txtPassword.getText() != null && txtEmail.getText() != null && cmbType.getValue() != null) {
+                String hashedPassword = Encrypter.hashPassword(txtPassword.getText());
+                int type = cmbType.getValue().equals("Admin") ? 1 : 2;
+                User user = new User(
+                        txtName.getText(),
+                        txtUserName.getText(),
+                        hashedPassword,
+                        txtEmail.getText(),
+                        type
+                );
+                User newUser = null;
+                try {
+                    newUser = userManager.createUser(user);
+                } catch (Exception e) {
+                    DisplayError.showError(e);
+                }
+                if(newUser != null) {
+                    createUser = newUser;
+                    Stage stage = (Stage) txtName.getScene().getWindow();
+                    stage.close();
+                }
             }
-            if(newUser != null) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText(null);
-                alert.setContentText("User created successfully!");
-                alert.showAndWait();
-
-                Stage stage = (Stage) txtName.getScene().getWindow();
-                stage.close();
+            else {
+                editingUser.setName(txtName.getText());
+                editingUser.setUserName(txtUserName.getText());
+                editingUser.setEmail(txtEmail.getText());
+                editingUser.setType(cmbType.getValue().equals("Admin") ? 1 : 2);
+                try {
+                    userManager.updateUser(editingUser);
+                    createUser = editingUser;
+                } catch (Exception e) {
+                    DisplayError.showError(e);
+                }
+            Stage stage = (Stage) txtName.getScene().getWindow();
+            stage.close();
             }
         }
+
+    }
+
+    public User getCreatedUser() {
+        return createUser;
+    }
+
+    @FXML
+    private void onCancel(ActionEvent actionEvent) {
+        Stage stage = (Stage) txtName.getScene().getWindow();
+        stage.close();
+    }
+
+    public void setEditingUser(User user) {
+        this.editingUser = user;
+        txtName.setText(user.getName());
+        txtUserName.setText(user.getUserName());
+        txtEmail.setText(user.getEmail());
+        cmbType.setValue(user.getType() == 1 ? "Admin" : "Coordinator");
+        txtPassword.setVisible(false);
+        txtPassword.setManaged(false);
     }
 }
